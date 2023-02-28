@@ -25,7 +25,9 @@ class PepSpider(scrapy.Spider):
         data = {
             'number': int(info_in_title.group('number')),
             'name': info_in_title.group('name'),
-            'status': response.css('dt:contains("Status") + dd abbr::text').get(),
+            'status': response.css(
+                'dt:contains("Status") + dd abbr::text'
+            ).get(),
         }
         print(data)
         yield PepParseItem(data)
