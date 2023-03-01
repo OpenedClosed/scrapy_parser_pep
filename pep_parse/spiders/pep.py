@@ -29,5 +29,4 @@ class PepSpider(scrapy.Spider):
                 'dt:contains("Status") + dd abbr::text'
             ).get(),
         }
-        print(data)
         yield PepParseItem(data)
